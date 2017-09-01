@@ -11,8 +11,17 @@
 |
 */
 
+
+Route::domain('{account}.cfox.io')->group(function () {
+    Route::get('/', function ($account) {
+        return  view('ui.clan', compact('account'));
+    });
+
+    Auth::routes();
+});
+
 Route::get('/', function () {
-    return view('welcome');
+  return view('welcome');
 });
 
 Auth::routes();

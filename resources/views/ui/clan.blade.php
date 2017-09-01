@@ -1,0 +1,1 @@
+Diese Subdomain gehört {{ $account }}.
