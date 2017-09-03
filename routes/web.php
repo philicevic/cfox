@@ -11,16 +11,10 @@
 |
 */
 
+// Subdomain-Handling
+Route::domain('{clan}.'.Config::get('app.url'))->group(function () {
 
-Route::domain('{account}.'.Config::get('app.url'))->group(function () {
-    Route::get('/', function ($account) {
-        $clan = App\Clan::where('subdomain', $account)->first();
-        if (!$clan) {
-          return redirect(Config::get('app.url'));
-        }
-        // dd($clan);
-        return  view('ui.clan', compact('clan'));
-    });
+    Route::get('/', 'ClanController@index');
 
     Auth::routes();
 });

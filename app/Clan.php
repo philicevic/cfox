@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Clan extends Model
 {
-    public function getClanBySubdomain($sub) {
-        
+    public function getRouteKeyName() {
+        return 'subdomain';
     }
 }
