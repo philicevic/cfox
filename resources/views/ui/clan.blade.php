@@ -1,1 +1,1 @@
-Diese Subdomain gehört {{ $account }}.
+Diese Subdomain gehört {{ $clan->name }}.

@@ -12,9 +12,14 @@
 */
 
 
-Route::domain('{account}.cfox.io')->group(function () {
+Route::domain('{account}.'.Config::get('app.url'))->group(function () {
     Route::get('/', function ($account) {
-        return  view('ui.clan', compact('account'));
+        $clan = App\Clan::where('subdomain', $account)->first();
+        if (!$clan) {
+          return redirect(Config::get('app.url'));
+        }
+        // dd($clan);
+        return  view('ui.clan', compact('clan'));
     });
 
     Auth::routes();
@@ -22,7 +27,7 @@ Route::domain('{account}.cfox.io')->group(function () {
 
 Route::get('/', function () {
   return view('welcome');
-});
+})->name('cfox');
 
 Auth::routes();
 
