@@ -47,6 +47,11 @@
 
             .title {
                 font-size: 84px;
+                color: #ff3f00;
+            }
+
+            .title span {
+              color: #636b6f;
             }
 
             .links > a {
@@ -79,7 +84,7 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    <span>c</span>fox
                 </div>
 
                 <div class="links">
