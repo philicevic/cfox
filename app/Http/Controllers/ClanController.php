@@ -12,7 +12,11 @@ class ClanController extends Controller
         if (!$clan) {
           return redirect(Config::get('app.url'));
         }
+
         // otherwise return view
-        return  view('ui.clan', compact('clan'));
+
+        $members = $clan->member;
+
+        return  view('ui.clan', compact('clan', 'members'));
     }
 }
