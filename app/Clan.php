@@ -14,4 +14,8 @@ class Clan extends Model
     public function member() {
         return $this->hasMany(Member::class);
     }
+
+    public function user() {
+      return $this->belongsToMany(User::class);
+    }
 }

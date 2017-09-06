@@ -21,6 +21,12 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
         });
+
+        Schema::create('clan_user', function (Blueprint $table) {
+            $table->integer('clan_id');
+            $table->integer('user_id');
+            $table->primary(['clan_id', 'user_id']);
+        });
     }
 
     /**
@@ -31,5 +37,7 @@ class CreateUsersTable extends Migration
     public function down()
     {
         Schema::dropIfExists('users');
+
+        Schema::dropIfExists('clan_user');
     }
 }

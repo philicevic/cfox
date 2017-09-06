@@ -14,8 +14,6 @@
 // Subdomain-Handling
 Route::domain('{clan}.'.Config::get('app.url'))->group(function () {
 
-    dd($this);
-
     Route::get('/', 'ClanController@index');
 
     Auth::routes();
