@@ -7,6 +7,8 @@ use App\Member;
 
 class Clan extends Model
 {
+    protected $guarded = [];
+
     public function getRouteKeyName() {
         return 'subdomain';
     }

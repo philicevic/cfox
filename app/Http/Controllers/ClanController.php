@@ -34,13 +34,14 @@ class ClanController extends Controller
     }
 
     public function store() {
-        $clan = new Clan();
 
-        $clan->name = request("name");
-        $clan->subdomain = request("subdomain");
-        $clan->website = request("website");
+        $clan = Clan::create([
+          'name' => request('name'),
+          'subdomain' => request('subdomain'),
+          'website' => request('website')
+        ]);
 
-        $clan->save();
+        // dd($clan);
 
         User::find(request()->user()->id)->clans()->save($clan);
 
