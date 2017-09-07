@@ -19,10 +19,17 @@ Route::domain('{clan}.'.Config::get('app.url'))->group(function () {
     Auth::routes();
 });
 
+
 Route::get('/', function () {
   return view('welcome');
 })->name('cfox');
 
+
+Route::prefix('clans')->group(function() {
+    Route::post('/', 'ClanController@store');
+    Route::get('create', 'ClanController@create')->name('clans.create');
+});
+
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'DashboardController@index')->name('home');
