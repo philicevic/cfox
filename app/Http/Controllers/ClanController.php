@@ -11,10 +11,10 @@ class ClanController extends Controller
 
     public function __construct(Clan $clan)
     {
+        $this->middleware('clan.auth');
     }
 
     public function index(Clan $clan) {
-        $this->middleware('clan.auth');
         // If no clan found redirect to cfox
         if (!$clan) {
           return redirect(Config::get('app.url'));
