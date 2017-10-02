@@ -17,6 +17,8 @@ class ClanAuthentication
     {
         $user = $request->user();
 
+        dd($request);
+
         // Check if user is logged in
         if (!$user) {
           return redirect(\Config::get('app.url'));
@@ -27,7 +29,7 @@ class ClanAuthentication
         foreach ($user->clans as $clan) {
             $clan_ids[] = $clan->id;
         }
-        
+
         // store requested clan
         $request_clan = request()->route()->parameters();
 
