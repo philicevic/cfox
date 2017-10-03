@@ -8,10 +8,10 @@
                 <form method="POST" action="/clans">
                     {{ csrf_field() }}
                     <div class="form-group">
-                        <input type="text" name="name" placeholder="Clan name">
+                        <input type="text" name="name" placeholder="Clan name" required>
                     </div>
                     <div class="form-group">
-                        <input type="text" name="subdomain" placeholder="Subdomain">
+                        <input type="text" name="subdomain" placeholder="Subdomain" required>
                     </div>
                     <div class="form-group">
                         <input type="text" name="website" placeholder="Homepage">
