@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use App\Clan;
 
 class ClanAuthentication
 {
@@ -17,7 +18,7 @@ class ClanAuthentication
     {
         $user = $request->user();
 
-        dd($request);
+        $request_clan = request()->route()->parameters()['clan'];
 
         // Check if user is logged in
         if (!$user) {
@@ -30,11 +31,11 @@ class ClanAuthentication
             $clan_ids[] = $clan->id;
         }
 
+
         // store requested clan
-        $request_clan = request()->route()->parameters();
 
         // Check if user is allowed to visit subdomain
-        if ($user && in_array($request_clan['clan']->id, $clan_ids)) {
+        if ($user && in_array($request_clan->id, $clan_ids)) {
           return $next($request);
         }
         // otherwise redirect to cfox main page

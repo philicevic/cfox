@@ -12,6 +12,7 @@ class DashboardController extends Controller
     }
 
     public function index() {
+        // dd(request()->user());
         $user = request()->user();
         return view('ui.dashboard.index', compact('user'));
     }
