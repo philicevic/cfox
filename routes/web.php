@@ -37,7 +37,7 @@ Route::domain('{clan}.'.Config::get('app.url'))->group(function () {
 
 
 Route::get('/', function () {
-  return view('public.index');
+  return view('welcome');
 })->name('cfox');
 
 
