@@ -1,4 +1,4 @@
-@extends('ui.dashboard.master')
+@extends('ui.index')
 
 @section('content')
     <div class="container">
