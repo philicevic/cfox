@@ -34,14 +34,15 @@
       <li{{ route('home')===Request::url() ? ' class=active' : '' }}><a href="{{ route('home') }}"><i class="fa fa-dashboard"></i> <span>Home</span></a></li>
       <li{{ route('notifications')===Request::url() ? ' class=active' : '' }}><a href="{{ route('notifications') }}"><i class="fa fa-envelope"></i> <span>Notifications</span></a></li>
       <li class="treeview">
-        <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
+        <a href="#"><i class="fa fa-cogs"></i> <span>Settings</span>
           <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="#">Link in level 2</a></li>
-          <li><a href="#">Link in level 2</a></li>
+          <li><a href="#">Account</a></li>
+          <li><a href="#">Appearence</a></li>
+          <li><a href="#">Payment</a></li>
         </ul>
       </li>
     </ul>

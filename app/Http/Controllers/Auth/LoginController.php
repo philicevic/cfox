@@ -39,7 +39,10 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        $pagetitle = "Login";
-        return view('ui.system.login', compact('pagetitle'));
+        $page = array(
+            "title" => "Login",
+            "info" => ""
+        );
+        return view('ui.system.login', compact('page'));
     }
 }

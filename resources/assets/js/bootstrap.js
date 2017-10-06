@@ -54,3 +54,6 @@ if (token) {
 
 // Admin LTE
 require('admin-lte');
+
+// Cookies
+require('js-cookie');
