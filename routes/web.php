@@ -35,19 +35,20 @@ Route::domain('{clan}.'.Config::get('app.url'))->group(function () {
     Auth::routes();
 });
 
+Route::domain(Config::get('app.url'))->group(function() {
+    Route::get('/', function () {
+      return view('welcome');
+    })->name('cfox');
 
-Route::get('/', function () {
-  return view('welcome');
-})->name('cfox');
 
+    Route::prefix('clans')->group(function() {
+        Route::post('/', 'ClanController@store');
+        Route::get('create', 'ClanController@create')->name('clans.create');
+    });
 
-Route::prefix('clans')->group(function() {
-    Route::post('/', 'ClanController@store');
-    Route::get('create', 'ClanController@create')->name('clans.create');
+    Auth::routes();
+
+    Route::get('/home', 'DashboardController@index')->name('home');
+
+    Route::get('/notifications', 'DashboardController@notifications')->name('notifications');
 });
-
-Auth::routes();
-
-Route::get('/home', 'DashboardController@index')->name('home');
-
-Route::get('/notifications', 'DashboardController@notifications')->name('notifications');
