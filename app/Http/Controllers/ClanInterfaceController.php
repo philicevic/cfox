@@ -21,7 +21,11 @@ class ClanInterfaceController extends Controller
 
         $members = $clan->member;
         $user = $clan->user;
+        $page = array(
+            "title" => $clan->name,
+            "info" => "Dashboard"
+        );
 
-        return  view('ui.clan', compact('clan', 'members', 'user'));
+        return  view('ui.clan-interface.index', compact('clan', 'members', 'user', 'page'));
     }
 }

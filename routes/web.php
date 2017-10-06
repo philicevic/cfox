@@ -14,10 +14,10 @@
 // Subdomain-Handling
 Route::domain('{clan}.'.Config::get('app.url'))->group(function () {
 
-    Route::get('/', 'ClanInterfaceController@index');
+    Route::get('/', 'ClanInterfaceController@index')->name('clan.home');
 
     Route::prefix('member')->group(function() {
-        Route::get('/', 'MemberController@index');
+        Route::get('/', 'MemberController@index')->name('clan.member');
         Route::get('create', 'MemberController@create');
         Route::post('/', 'MemberController@store');
         Route::delete('/', 'MemberController@delete');
