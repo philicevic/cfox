@@ -49,3 +49,5 @@ Route::prefix('clans')->group(function() {
 Auth::routes();
 
 Route::get('/home', 'DashboardController@index')->name('home');
+
+Route::get('/notifications', 'DashboardController@notifications')->name('notifications');

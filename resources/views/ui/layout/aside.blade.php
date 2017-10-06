@@ -29,10 +29,10 @@
 
     <!-- Sidebar Menu -->
     <ul class="sidebar-menu" data-widget="tree">
-      <li class="header">HEADER</li>
+      <li class="header">Menu</li>
       <!-- Optionally, you can add icons to the links -->
-      <li class="active"><a href="#"><i class="fa fa-link"></i> <span>Link</span></a></li>
-      <li><a href="#"><i class="fa fa-link"></i> <span>Another Link</span></a></li>
+      <li{{ route('home')===Request::url() ? ' class=active' : '' }}><a href="{{ route('home') }}"><i class="fa fa-dashboard"></i> <span>Home</span></a></li>
+      <li{{ route('notifications')===Request::url() ? ' class=active' : '' }}><a href="{{ route('notifications') }}"><i class="fa fa-envelope"></i> <span>Notifications</span></a></li>
       <li class="treeview">
         <a href="#"><i class="fa fa-link"></i> <span>Multilevel</span>
           <span class="pull-right-container">

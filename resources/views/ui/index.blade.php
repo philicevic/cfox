@@ -37,17 +37,7 @@ desired effect
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    <section class="content-header">
-      <h1>
-        Page Header
-        <small>Optional description</small>
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">{{ $pagetitle }}</li>
-      </ol>
-    </section>
-
+    @include('ui.layout.contentheader')
     <!-- Main content -->
     <section class="content container-fluid">
 
@@ -65,7 +55,7 @@ desired effect
       Anything you want
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2017 <a href="{{ url("/") }}">cfox</a>.</strong> All rights reserved.
   </footer>
 
   <!-- Control Sidebar -->
