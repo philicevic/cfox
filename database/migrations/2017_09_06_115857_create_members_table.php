@@ -23,7 +23,6 @@ class CreateMembersTable extends Migration
             $table->integer('team_id')->nullable();
             $table->boolean('trial')->nullable();
             $table->boolean('warned')->nullable();
-            $table->date('join_date')->nullable();
             $table->date('trial_until')->nullable();
             $table->string('phonenumber')->nullable();
             $table->string('steamurl')->nullable();
