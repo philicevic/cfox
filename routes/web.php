@@ -52,4 +52,10 @@ Route::domain(Config::get('app.url'))->group(function() {
     Route::get('/home', 'DashboardController@index')->name('home');
 
     Route::get('/notifications', 'DashboardController@notifications')->name('notifications');
+
+    // Admin-Stuff
+    Route::prefix('users')->group(function() {
+        Route::get('/', 'UserController@listActive')->name('admin.users.list');
+        Route::get('/activate', 'UserController@ListNonActivated')->name('admin.users.activate');
+    });
 });

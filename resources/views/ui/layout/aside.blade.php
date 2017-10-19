@@ -45,6 +45,19 @@
           <li><a href="#">Payment</a></li>
         </ul>
       </li>
+      @if (Auth::user()->admin))
+          <li class="treeview">
+              <a href="#"><i class="fa fa-users"></i> <span>Users</span>
+                <span class="pull-right-container">
+                    <i class="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{{ route('admin.users.list') }}">Active Users</a></li>
+                <li><a href="{{ route('admin.users.activate') }}">Activate Users</a></li>
+              </ul>
+          </li>
+      @endif
     </ul>
     <!-- /.sidebar-menu -->
   </section>

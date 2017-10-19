@@ -9,6 +9,11 @@ Breadcrumbs::register('notifications', function($breadcrumbs) {
   $breadcrumbs->push('Notifications', route('notifications'));
 });
 
+// Admin-Stuff
+Breadcrumbs::register('admin.users.list', function($breadcrumbs) {
+    $breadcrumbs->push('Active Users', route('admin.users.list'));
+});
+
 // Clan-Interface
 
 Breadcrumbs::register('clan.home', function($breadcrumbs, $subdomain) {
