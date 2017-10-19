@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use App\Mail\Welcome;
+use App\Mail\Registration;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -81,6 +82,7 @@ class RegisterController extends Controller
      */
     protected function registered(Request $request, $user)
     {
-        Mail::to($user)->send(new Welcome($user));
+        Mail::to($user)->queue(new Welcome($user));
+        Mail::to(env('NOTIFICATION_EMAIL'))->queue(new Registration($user));
     }
 }

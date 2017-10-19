@@ -41,6 +41,12 @@ Route::domain(Config::get('app.url'))->group(function() {
       return view('welcome');
     })->name('cfox');
 
+    Route::get('/registermail', function () {
+        $user = App\User::find(1);
+
+        return new App\Mail\Registration($user);
+    });
+
 
     Route::prefix('clans')->group(function() {
         Route::post('/', 'ClanController@store');
