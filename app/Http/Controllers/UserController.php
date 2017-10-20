@@ -7,6 +7,10 @@ use App\User;
 
 class UserController extends Controller
 {
+    public function __construct() {
+        $this->middleware('app.admin');
+    }
+
     public function listActive() {
         $users = User::all();
         $page = array(

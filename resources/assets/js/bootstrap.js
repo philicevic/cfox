@@ -57,3 +57,8 @@ require('admin-lte');
 
 // Cookies
 require('js-cookie');
+
+// DataTable
+require('datatables.net');
+require('datatables.net-bs');
+require('datatables.net-responsive');

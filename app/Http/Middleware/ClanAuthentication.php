@@ -22,7 +22,7 @@ class ClanAuthentication
 
         // Check if user is logged in
         if (!$user) {
-          return redirect(\Config::get('app.url'));
+          return redirect(route('login'));
         }
 
         // fetch clan_ids of current user
@@ -39,6 +39,6 @@ class ClanAuthentication
           return $next($request);
         }
         // otherwise redirect to cfox main page
-        return redirect(\Config::get('app.url'));
+        return redirect(route('home'));
     }
 }
