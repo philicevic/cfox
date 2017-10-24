@@ -6,7 +6,7 @@
         <div class="col-xs-12">
           <div class="box box-warning">
             <div class="box-header">
-              <h3 class="box-title">All Users</h3>
+              <h3 class="box-title">Users</h3>
 
               <div class="box-tools">
                 <div class="input-group input-group-sm" style="width: 150px;">
@@ -24,7 +24,6 @@
                 <table id="userlist" class="table table-hover table-responsive">
                     <thead>
                         <tr>
-                            <th>ID</th>
                             <th>User</th>
                             <th>E-Mail</th>
                             <th>Status</th>
@@ -34,7 +33,6 @@
                     </thead>
                     <tfoot>
                         <tr>
-                            <th>ID</th>
                             <th>User</th>
                             <th>E-Mail</th>
                             <th>Status</th>
@@ -45,7 +43,6 @@
                     <tbody>
                         @foreach ($users as $user)
                             <tr>
-                                <td>{{ $user->id }}</td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>
@@ -55,12 +52,22 @@
                                         <span class="label label-danger">Not Verified</span>
                                     @endif
                                 </td>
-                                <td><a href="{{ route('admin.users.edit', $user->id) }}"><i class="fa fa-edit"></i></a></td>
+                                <td><a id="{{ $user->id }}" class="user-activator btn btn-success"><i class="fa fa-check"></i></a></td>
                                 <td></td>
                             </tr>
                         @endforeach
                     </tbody>
                 </table>
+
+                <script type="text/javascript">
+                    $('.user-activator').click(function() {
+                        $(this).removeClass('btn-success').addClass('btn-warning').children('i').addClass('fa-spinner').addClass('fa-spin').removeClass('fa-check');
+                        axios.post('/users/activate', {
+                            userid: this.id
+                        });
+                        $(this).removeClass('btn-warning').addClass('disabled').addClass('btn-success').children('i').removeClass('fa-spinner').removeClass('fa-spin').addClass('fa-check');
+                    });
+                </script>
 
             </div>
             <!-- /.box-body -->

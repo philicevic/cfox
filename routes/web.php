@@ -74,6 +74,8 @@ Route::domain(Config::get('app.url'))->group(function() {
 
             Route::get('/activate', 'UserController@ListNonActivated')->name('admin.users.activate');
 
+            Route::post('/activate', 'UserController@activate');
+
             Route::get('/edit/{user}', 'UserController@edit')->name('admin.users.edit');
         });
     });

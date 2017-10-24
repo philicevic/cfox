@@ -118,7 +118,7 @@
           <!-- Menu Toggle Button -->
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">
             <!-- The user image in the navbar-->
-            <img src="img/user8-128x128.jpg" class="user-image">
+            <img src="/img/user8-128x128.jpg" class="user-image">
             <!-- hidden-xs hides the username on small devices so only the image appears. -->
             <span class="hidden-xs">{{ Auth::user()->name }}</span>
           </a>

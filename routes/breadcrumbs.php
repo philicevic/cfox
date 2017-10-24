@@ -13,6 +13,9 @@ Breadcrumbs::register('notifications', function($breadcrumbs) {
 Breadcrumbs::register('admin.users.list', function($breadcrumbs) {
     $breadcrumbs->push('Active Users', route('admin.users.list'));
 });
+Breadcrumbs::register('admin.users.activate', function($breadcrumbs) {
+    $breadcrumbs->push('Pending Users', route('admin.users.activate'));
+});
 
 // Clan-Interface
 
