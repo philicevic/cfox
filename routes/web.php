@@ -76,6 +76,8 @@ Route::domain(Config::get('app.url'))->group(function() {
 
             Route::post('/activate', 'UserController@activate');
 
+            Route::post('/delete', 'UserController@delete');
+
             Route::get('/edit/{user}', 'UserController@edit')->name('admin.users.edit');
         });
     });

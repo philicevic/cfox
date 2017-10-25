@@ -42,7 +42,7 @@
                     </tfoot>
                     <tbody>
                         @foreach ($users as $user)
-                            <tr>
+                            <tr id="{{ $user->id }}">
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>
@@ -52,7 +52,16 @@
                                         <span class="label label-danger">Not Verified</span>
                                     @endif
                                 </td>
-                                <td><a id="{{ $user->id }}" class="user-activator btn btn-success"><i class="fa fa-check"></i></a></td>
+                                <td>
+                                    <div class="btn-group">
+                                        <a class="user-activator btn btn-success">
+                                            <i class="fa fa-check"></i>
+                                        </a>
+                                        <a class="user-deletor btn btn-danger">
+                                            <i class="fa fa-remove"></i>
+                                        </a>
+                                    </div>
+                                </td>
                                 <td></td>
                             </tr>
                         @endforeach
@@ -60,13 +69,7 @@
                 </table>
 
                 <script type="text/javascript">
-                    $('.user-activator').click(function() {
-                        $(this).removeClass('btn-success').addClass('btn-warning').children('i').addClass('fa-spinner').addClass('fa-spin').removeClass('fa-check');
-                        axios.post('/users/activate', {
-                            userid: this.id
-                        });
-                        $(this).removeClass('btn-warning').addClass('disabled').addClass('btn-success').children('i').removeClass('fa-spinner').removeClass('fa-spin').addClass('fa-check');
-                    });
+
                 </script>
 
             </div>
@@ -87,6 +90,38 @@
             $('#listsearch').on( 'keyup', function () {
                 table.search( this.value ).draw();
             });
+
+            // Buttons
+
+            $('.user-activator').click(function() {
+                var button = $(this);
+                button.removeClass('btn-success').addClass('btn-warning').children('i').addClass('fa-spinner').addClass('fa-spin').removeClass('fa-check');
+                axios.post('/users/activate', {
+                    userid: button.parent().parent().parent().attr('id')
+                })
+                .then(function (response) {
+                    console.log(button);
+                    button.removeClass('btn-warning').addClass('disabled').addClass('btn-success').children('i').removeClass('fa-spinner').removeClass('fa-spin').addClass('fa-check');
+                    button.parent().parent().parent().hide("slow", function() {
+                        table.row($(this)).remove().draw(false);
+                    });
+                });
+            });
+
+            $('.user-deletor').click(function() {
+                var button = $(this);
+                button.removeClass('btn-danger').addClass('btn-warning').children('i').addClass('fa-spinner').addClass('fa-spin').removeClass('fa-remove');
+                axios.post('/users/delete', {
+                    userid: button.parent().parent().parent().attr('id')
+                })
+                .then(function (response) {
+                    button.removeClass('btn-warning').addClass('disabled').addClass('btn-danger').children('i').removeClass('fa-spinner').removeClass('fa-spin').addClass('fa-remove');
+                    button.parent().parent().parent().hide("slow", function() {
+                        table.row($(this)).remove().draw(false);
+                    });
+                });
+            });
+
         });
         </script>
     </div>

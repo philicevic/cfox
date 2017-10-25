@@ -40,4 +40,10 @@ class UserController extends Controller
 
         Mail::to($user)->send(new VerificationNotification($user));
     }
+
+    public function delete() {
+        $user = User::find(request('userid'));
+
+        $user->delete();
+    }
 }
