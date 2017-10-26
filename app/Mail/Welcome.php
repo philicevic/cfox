@@ -33,7 +33,7 @@ class Welcome extends Mailable
         return $this->markdown('mail.alpha_welcome')
                     ->with([
                         'url' => route('home'),
-                        'name' => request()->user()->name
+                        'name' => $this->user->name
                     ]);
     }
 }

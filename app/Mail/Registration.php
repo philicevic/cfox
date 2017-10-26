@@ -11,14 +11,17 @@ class Registration extends Mailable
 {
     use Queueable, SerializesModels;
 
+    // new registered user
+    protected $user;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($user)
     {
-        //
+        $this->user = $user;
     }
 
     /**
@@ -31,7 +34,7 @@ class Registration extends Mailable
         return $this->markdown('mail.alpha_registration')
                     ->with([
                         'url' => route('admin.users.activate'),
-                        'user' => request()->user()
+                        'user' => $this->user
                     ]);
     }
 }
