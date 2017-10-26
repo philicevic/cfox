@@ -17,6 +17,10 @@ Breadcrumbs::register('admin.users.activate', function($breadcrumbs) {
     $breadcrumbs->push('Pending Users', route('admin.users.activate'));
 });
 
+Breadcrumbs::register('admin.users.invite', function($breadcrumbs) {
+    $breadcrumbs->push('Invite User', route('admin.users.invite'));
+});
+
 // Clan-Interface
 
 Breadcrumbs::register('clan.home', function($breadcrumbs, $subdomain) {

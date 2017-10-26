@@ -49,13 +49,6 @@ Route::domain(Config::get('app.url'))->group(function() {
 
     Route::middleware('auth')->group(function() {
 
-        Route::get('/registermail', function () {
-            $user = App\User::find(1);
-
-            return new App\Mail\Registration($user);
-        });
-
-
         Route::prefix('clans')->group(function() {
             Route::post('/', 'ClanController@store');
             Route::get('create', 'ClanController@create')->name('clans.create');
@@ -63,7 +56,10 @@ Route::domain(Config::get('app.url'))->group(function() {
 
         Route::get('/home', 'DashboardController@index')->name('home');
 
-        Route::get('/notifications', 'DashboardController@notifications')->name('notifications');
+        // Route::get('/notifications', 'DashboardController@notifications')->name('notifications');
+        Route::get('/notifications', function() {
+            return redirect(route('home'));
+        })->name('notifications');
 
     });
 
@@ -79,6 +75,10 @@ Route::domain(Config::get('app.url'))->group(function() {
             Route::post('/delete', 'UserController@delete');
 
             Route::get('/edit/{user}', 'UserController@edit')->name('admin.users.edit');
+
+            Route::get('/invite', 'UserController@invite')->name('admin.users.invite');
+
+            Route::post('/invite', 'UserController@sendInvite')->name('admin.users.sendInvite');
         });
     });
 });

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use App\User;
 use App\Mail\VerificationNotification;
+use App\Mail\Invite;
+use App\Http\Requests\InviteUser;
 
 class UserController extends Controller
 {
@@ -29,6 +31,21 @@ class UserController extends Controller
             "info" => ""
         );
         return view('ui.users.activate', compact('page', 'users'));
+    }
+
+    public function invite() {
+        $page = array(
+            "title" => "Invite User",
+            "info" => "Invite a new user to cfox"
+        );
+        return view('ui.users.invite', compact('page'));
+    }
+
+    public function sendInvite(InviteUser $request) {
+
+        Mail::to(request('email'))->send(new Invite());
+
+        return redirect(route('admin.users.invite'));
     }
 
     public function activate() {

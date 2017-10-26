@@ -32,7 +32,15 @@
       <li class="header">Menu</li>
       <!-- Optionally, you can add icons to the links -->
       <li{{ route('home')===Request::url() ? ' class=active' : '' }}><a href="{{ route('home') }}"><i class="fa fa-dashboard"></i> <span>Home</span></a></li>
-      <li{{ route('notifications')===Request::url() ? ' class=active' : '' }}><a href="{{ route('notifications') }}"><i class="fa fa-envelope"></i> <span>Notifications</span></a></li>
+      <li style="
+        cursor: not-allowed;
+        pointer-events: none;
+        opacity: 0.2;
+      " {{ route('notifications')===Request::url() ? ' class=active' : '' }}>
+        <a href="{{ route('notifications') }}">
+            <i class="fa fa-envelope"></i> <span>Notifications</span>
+        </a>
+      </li>
       <li class="treeview">
         <a href="#"><i class="fa fa-cogs"></i> <span>Settings</span>
           <span class="pull-right-container">
@@ -55,6 +63,7 @@
               <ul class="treeview-menu">
                 <li><a href="{{ route('admin.users.list') }}">Active Users</a></li>
                 <li><a href="{{ route('admin.users.activate') }}">Activate Users</a></li>
+                <li><a href="{{ route('admin.users.invite') }}">Invite User <span class="label label-danger">Alpha</span></a></li>
               </ul>
           </li>
       @endif

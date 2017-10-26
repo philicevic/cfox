@@ -43,6 +43,11 @@ class ClanController extends Controller
 
     public function store() {
 
+        $this->validate(request(), [
+            'name' => 'required',
+            'subdomain' => 'required|unique:clans,subdomain'
+        ]);
+
         // Make array with information about the new clan
         $clan = Clan::create([
           'name' => request('name'),                        // clan name
