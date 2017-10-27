@@ -11,13 +11,15 @@ Breadcrumbs::register('notifications', function($breadcrumbs) {
 
 // Admin-Stuff
 Breadcrumbs::register('admin.users.list', function($breadcrumbs) {
-    $breadcrumbs->push('Active Users', route('admin.users.list'));
+    $breadcrumbs->push('Users', route('admin.users.list'));
 });
 Breadcrumbs::register('admin.users.activate', function($breadcrumbs) {
+    $breadcrumbs->parent('admin.users.list');
     $breadcrumbs->push('Pending Users', route('admin.users.activate'));
 });
 
 Breadcrumbs::register('admin.users.invite', function($breadcrumbs) {
+    $breadcrumbs->parent('admin.users.list');
     $breadcrumbs->push('Invite User', route('admin.users.invite'));
 });
 

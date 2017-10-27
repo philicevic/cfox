@@ -54,16 +54,17 @@
         </ul>
       </li>
       @if (Auth::user()->admin))
-          <li class="treeview">
+          <li class="header">Admin</li>
+          <li class="treeview{{ Request::is('users/*') || Request::is('users') ? ' active menu-open' : '' }}">
               <a href="#"><i class="fa fa-users"></i> <span>Users</span>
                 <span class="pull-right-container">
                     <i class="fa fa-angle-left pull-right"></i>
                 </span>
               </a>
               <ul class="treeview-menu">
-                <li><a href="{{ route('admin.users.list') }}">Active Users</a></li>
-                <li><a href="{{ route('admin.users.activate') }}">Activate Users</a></li>
-                <li><a href="{{ route('admin.users.invite') }}">Invite User <span class="label label-danger">Alpha</span></a></li>
+                <li{{ route('admin.users.list')===Request::url() ? ' class=active' : '' }}><a href="{{ route('admin.users.list') }}">Active Users</a></li>
+                <li{{ route('admin.users.activate')===Request::url() ? ' class=active' : '' }}><a href="{{ route('admin.users.activate') }}">Activate Users</a></li>
+                <li{{ route('admin.users.invite')===Request::url() ? ' class=active' : '' }}><a href="{{ route('admin.users.invite') }}">Invite User <span class="label label-danger">Alpha</span></a></li>
               </ul>
           </li>
       @endif
