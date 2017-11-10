@@ -20,19 +20,20 @@ Route::domain('{clan}.'.Config::get('app.url'))->group(function () {
 
         Route::prefix('member')->group(function() {
             Route::get('/', 'MemberController@index')->name('clan.member');
+            Route::get('/{nickname}', 'MemberController@show')->name('clan.member.show');
             Route::get('create', 'MemberController@create');
             Route::post('/', 'MemberController@store');
             Route::delete('/', 'MemberController@delete');
             Route::get('show/{nickname}', 'MemberController@show');
         });
 
-        Route::prefix('teams')->group(function() {
-            Route::get('/', 'TeamsController@index');
-            Route::get('create', 'TeamsController@create');
-            Route::post('/', 'TeamsController@store');
-            Route::delete('/', 'TeamsController@delete');
-            Route::get('show/{teamname}', 'TeamsController@show');
-        });
+        // Route::prefix('teams')->group(function() {
+        //     Route::get('/', 'TeamsController@index');
+        //     Route::get('create', 'TeamsController@create');
+        //     Route::post('/', 'TeamsController@store');
+        //     Route::delete('/', 'TeamsController@delete');
+        //     Route::get('show/{teamname}', 'TeamsController@show');
+        // });
 
     });
 

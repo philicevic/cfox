@@ -33,7 +33,6 @@ class ClanAuthentication
 
 
         // store requested clan
-
         // Check if user is allowed to visit subdomain
         if ($user && in_array($request_clan->id, $clan_ids)) {
           return $next($request);

@@ -26,6 +26,6 @@ class ClanInterfaceController extends Controller
             "info" => "Dashboard"
         );
 
-        return  view('ui.clan-interface.index', compact('clan', 'members', 'user', 'page'));
+        return  view('ui.clan.index', compact('clan', 'members', 'user', 'page'));
     }
 }

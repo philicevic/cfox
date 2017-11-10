@@ -5,7 +5,7 @@ This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <html>
-@include('ui.clan-interface.layout.head')
+@include('ui.clan.partials.head')
 <!--
 BODY TAG OPTIONS:
 =================
@@ -30,14 +30,14 @@ desired effect
 <div class="wrapper">
 
   <!-- Main Header -->
-  @include('ui.clan-interface.layout.header')
+  @include('ui.clan.partials.header')
   <!-- Left side column. contains the logo and sidebar -->
-  @include('ui.clan-interface.layout.aside')
+  @include('ui.clan.partials.aside')
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
-    @include('ui.clan-interface.layout.contentheader')
+    @include('ui.clan.partials.contentheader')
     <!-- Main content -->
     <section class="content container-fluid">
 
