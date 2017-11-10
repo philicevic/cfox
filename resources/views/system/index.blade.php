@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-@include('ui.layout.head')
+@include('ui.dashboard.partials.head')
 <body class="hold-transition login-page">
   <div class="login-box">
     <div class="login-logo">

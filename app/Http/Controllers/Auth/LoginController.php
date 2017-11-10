@@ -92,6 +92,6 @@ class LoginController extends Controller
             "title" => "Login",
             "info" => ""
         );
-        return view('ui.system.login', compact('page'));
+        return view('system.login', compact('page'));
     }
 }

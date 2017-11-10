@@ -1,4 +1,4 @@
-@extends("ui.index")
+@extends("ui.dashboard.index")
 
 @section("content")
     <!-- Main content -->

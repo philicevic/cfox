@@ -18,7 +18,7 @@ return [
     |
     */
 
-    'view' => 'partials/breadcrumbs',
+    'view' => 'ui/partials/breadcrumbs',
 
     /*
     |--------------------------------------------------------------------------

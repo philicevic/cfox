@@ -1,42 +1,65 @@
-@extends('ui.index')
 
-@section('content')
-        <div class="row">
-          @foreach( $user->clans as $clan )
-            <div class="col-sm-12">
-              <div class="panel panel-primary">
-                <div class="panel-body">
-                    <h4 class="card-title">{{ $clan->name }}</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <a href="http://{{ $clan->subdomain }}.{{ request()->getHttpHost() }}" class="btn btn-primary">Admin Interface</a>
-                  </div>
-              </div>
-            </div>
-          @endforeach
-          <div class="col-sm-12">
-            <div class="panel panel-primary">
-              <div class="panel-body">
-                  <h4 class="card-title">Create a new clan!</h4>
-                  <p class="card-text">Register your clan now!</p>
-                  <a href="{{ route('clans.create') }}" class="btn btn-primary">Let's Go!</a>
-                </div>
-            </div>
-          </div>
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html>
+@include('ui.dashboard.partials.head')
+<!--
+BODY TAG OPTIONS:
+=================
+Apply one or more of the following classes to get the
+desired effect
+|---------------------------------------------------------|
+| SKINS         | skin-blue                               |
+|               | skin-black                              |
+|               | skin-purple                             |
+|               | skin-yellow                             |
+|               | skin-red                                |
+|               | skin-green                              |
+|---------------------------------------------------------|
+|LAYOUT OPTIONS | fixed                                   |
+|               | layout-boxed                            |
+|               | layout-top-nav                          |
+|               | sidebar-collapse                        |
+|               | sidebar-mini                            |
+|---------------------------------------------------------|
+-->
+<body class="hold-transition skin-yellow sidebar-mini">
+<div class="wrapper">
 
-            <div class="col-md-8 col-md-offset-2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">Dashboard</div>
+  <!-- Main Header -->
+  @include('ui.dashboard.partials.header')
+  <!-- Left side column. contains the logo and sidebar -->
+  @include('ui.dashboard.partials.aside')
 
-                    <div class="panel-body">
-                        @if (session('status'))
-                            <div class="alert alert-success">
-                                {{ session('status') }}
-                            </div>
-                        @endif
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    @include('ui.dashboard.partials.contentheader')
+    <!-- Main content -->
+    <section class="content container-fluid">
 
-                        You are logged in!
-                    </div>
-                </div>
-            </div>
-        </div>
-@endsection
+        @yield('content')
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="pull-right hidden-xs">
+      Anything you want
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2017 <a href="{{ url("/") }}">cfox</a>.</strong> All rights reserved.
+  </footer>
+  @include('ui.dashboard.partials.controlbar')
+</div>
+<!-- ./wrapper -->
+
+</body>
+</html>

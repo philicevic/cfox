@@ -21,7 +21,7 @@ class UserController extends Controller
           "title" => "Users",
           "info" => ""
         );
-        return view('ui.users.index', compact('page', 'users'));
+        return view('ui.dashboard.a-users.index', compact('page', 'users'));
     }
 
     public function listNonActivated() {
@@ -30,7 +30,7 @@ class UserController extends Controller
             "title" => "Pending Users",
             "info" => ""
         );
-        return view('ui.users.activate', compact('page', 'users'));
+        return view('ui.dashboard.a-users.activate', compact('page', 'users'));
     }
 
     public function invite() {
@@ -38,7 +38,7 @@ class UserController extends Controller
             "title" => "Invite User",
             "info" => "Invite a new user to cfox"
         );
-        return view('ui.users.invite', compact('page'));
+        return view('ui.dashboard.a-users.invite', compact('page'));
     }
 
     public function sendInvite(InviteUser $request) {

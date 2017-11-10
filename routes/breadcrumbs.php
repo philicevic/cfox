@@ -5,6 +5,10 @@ Breadcrumbs::register('home', function($breadcrumbs) {
   $breadcrumbs->push('Dashboard', route('home'));
 });
 
+Breadcrumbs::register('clans.create', function($breadcrumbs) {
+  $breadcrumbs->push('New Clan', route('clans.create'));
+});
+
 Breadcrumbs::register('notifications', function($breadcrumbs) {
   $breadcrumbs->push('Notifications', route('notifications'));
 });

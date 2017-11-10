@@ -1,5 +1,5 @@
 @if (count($breadcrumbs))
-  
+
         @foreach ($breadcrumbs as $breadcrumb)
 
             @if ($breadcrumb->url && !$loop->last)

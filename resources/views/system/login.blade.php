@@ -1,4 +1,4 @@
-@extends('ui.system')
+@extends('system.index')
 
 @section('content')
       <p class="login-box-msg">Sign in to start your session</p>

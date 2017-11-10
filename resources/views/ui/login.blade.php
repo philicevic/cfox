@@ -1,1 +1,0 @@
-Loginpage for {{ $clan->name }}

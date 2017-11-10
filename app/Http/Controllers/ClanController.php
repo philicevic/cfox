@@ -37,8 +37,13 @@ class ClanController extends Controller
     // part of main-domain
 
     public function create() {
+        $page = array(
+            "title" => "New Clan",
+            "info" => "create your clan"
+        );
+
         $user = request()->user();
-        return view('ui.clan.create', compact('user'));
+        return view('ui.clan.create', compact('user', 'page'));
     }
 
     public function store() {

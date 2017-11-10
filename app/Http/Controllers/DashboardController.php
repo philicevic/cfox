@@ -18,7 +18,7 @@ class DashboardController extends Controller
           "title" => "Dashboard",
           "info" => ""
         );
-        return view('ui.dashboard.index', compact('user', 'page'));
+        return view('ui.dashboard.dashboard.index', compact('user', 'page'));
     }
 
     public function notifications() {
@@ -27,6 +27,6 @@ class DashboardController extends Controller
         "title" => "Notifications",
         "info" => "Last Actions"
       );
-      return view('ui.notifications.index', compact('user', 'page'));
+      return view('ui.dashboard.notifications.index', compact('user', 'page'));
     }
 }
