@@ -19,6 +19,7 @@ class CreateClansTable extends Migration
             $table->string('subdomain');
             $table->string('logo')->nullable();
             $table->string('website')->nullable();
+            $table->integer('creator_id');
             $table->timestamps();
         });
     }

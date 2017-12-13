@@ -1,1 +1,5 @@
-@extends('ui.clan-interface.index')
+@extends('ui.clan.index')
+
+@section('content')
+  
+@endsection

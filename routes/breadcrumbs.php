@@ -36,3 +36,10 @@ Breadcrumbs::register('clan.home', function($breadcrumbs, $subdomain) {
 Breadcrumbs::register('clan.member', function($breadcrumbs, $subdomain) {
     $breadcrumbs->push('Member', route('clan.member', ["clan" => $subdomain]));
 });
+
+Breadcrumbs::register('clan.member.show', function($breadcrumbs, $member) {
+    // dd();
+    $routeData = request()->route()->parameters();
+    $breadcrumbs->parent('clan.member', $routeData['clan']->subdomain);
+    $breadcrumbs->push($routeData['nickname'], route('clan.member.show', ["clan" => $routeData['clan']->subdomain, "nickname" => $routeData['nickname']]));
+});

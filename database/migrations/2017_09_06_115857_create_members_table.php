@@ -21,14 +21,17 @@ class CreateMembersTable extends Migration
             $table->string('email')->nullable();
             $table->integer('clan_id');
             $table->integer('team_id')->nullable();
+            $table->integer('game_id')->nullable();
             $table->boolean('trial')->nullable();
-            $table->boolean('warned')->nullable();
             $table->date('trial_until')->nullable();
             $table->string('phonenumber')->nullable();
             $table->string('steamurl')->nullable();
             $table->string('psn')->nullable();
-            $table->string('twitterurl')->nullable();
+            $table->string('twitter')->nullable();
+            $table->string('twitch')->nullable();
+            $table->string('discordid')->nullable();
             $table->string('image')->nullable();
+            $table->string('uri');
             $table->boolean('active');
         });
     }

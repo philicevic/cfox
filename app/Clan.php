@@ -20,4 +20,8 @@ class Clan extends Model
     public function user() {
       return $this->belongsToMany(User::class);
     }
+
+    public function admin() {
+      return $this->belongsTo(User::class, 'creator_id');
+    }
 }

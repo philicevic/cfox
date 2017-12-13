@@ -43,7 +43,7 @@ class ClanController extends Controller
         );
 
         $user = request()->user();
-        return view('ui.clan.create', compact('user', 'page'));
+        return view('ui.dashboard.clans.create', compact('user', 'page'));
     }
 
     public function store() {
@@ -57,7 +57,8 @@ class ClanController extends Controller
         $clan = Clan::create([
           'name' => request('name'),                        // clan name
           'subdomain' => request('subdomain'),              // clan subdomain for system
-          'website' => request('website')                   // clan website
+          'website' => request('website'),                  // clan website
+          'creator_id' => request()->user()->id                  // clan creator
         ]);
 
         // Connect User with Clan in pivot-table

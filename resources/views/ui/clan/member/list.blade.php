@@ -30,7 +30,7 @@
                           <th>Age</th>
                           <th>Team</th>
                           <th>Trial</th>
-                          <th>Warned</th>
+                          <th>Steam</th>
                           <th></th>
                       </tr>
                   </thead>

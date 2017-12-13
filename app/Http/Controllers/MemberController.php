@@ -13,11 +13,21 @@ class MemberController extends Controller
     }
 
     public function index(Clan $clan) {
-        $memberlist = Member::where('clan_id', $clan->id)->get();
+        $memberlist = $clan->member;
         $page = array(
             "title" => $clan->name,
             "info" => "Member"
         );
         return view('ui.clan.member.list', compact('memberlist', 'page', 'clan'));
+    }
+
+    public function show(Clan $clan, $nickname) {
+      $member = Member::where('nickname', $nickname)->where('clan_id', $clan->id)->get()->first();
+      // dd($member);
+      $page = array(
+        "title" => $member->nickname,
+        "info" => ""
+      );
+      return view("ui.clan.member.show", compact('page', "clan", "member"));
     }
 }

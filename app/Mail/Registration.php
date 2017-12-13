@@ -31,7 +31,7 @@ class Registration extends Mailable
      */
     public function build()
     {
-        return $this->markdown('mail.alpha_registration')
+        return $this->markdown('mail.register.alpha_registration')
                     ->with([
                         'url' => route('admin.users.activate'),
                         'user' => $this->user

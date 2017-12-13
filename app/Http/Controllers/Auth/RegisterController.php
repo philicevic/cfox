@@ -104,4 +104,12 @@ class RegisterController extends Controller
         Mail::to($user)->queue(new Welcome($user));
         Mail::to(env('NOTIFICATION_EMAIL'))->queue(new Registration($user));
     }
+
+    public function showRegistrationForm() {
+      $page = array(
+          "title" => "Login",
+          "info" => ""
+      );
+      return view('auth.register', compact('page'));
+    }
 }
